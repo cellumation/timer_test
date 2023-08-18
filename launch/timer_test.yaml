@@ -1,0 +1,12 @@
+launch:
+  - set_parameter:
+      name: use_sim_time
+      value: "true"
+  - node:
+      pkg: timer_test
+      exec: timer_test
+  - include:
+      file: $(find-pkg-share gazebo_ros)/launch/gzserver.launch.py
+      arg:
+        - name: params_file
+          value: $(find-pkg-share timer_test)/params.yaml
